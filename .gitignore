@@ -76,3 +76,4 @@ artifacts/
 *.scc
 
 /backup
+*.db
