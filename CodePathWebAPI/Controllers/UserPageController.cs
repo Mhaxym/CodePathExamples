@@ -1,4 +1,6 @@
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace CodePathWebAPI.Controllers;
 
 [ApiController]
@@ -14,6 +16,7 @@ public class UserPageController(ILogger<UserPageController> logger, NetCoreDbCon
         return TypedResults.Ok(await _db.UserPages.ToListAsync());
     }
 
+    [Authorize]
     [HttpGet("{id}", Name = "GetUserPage")]
     public async Task<IResult> Get(int id)
     {
